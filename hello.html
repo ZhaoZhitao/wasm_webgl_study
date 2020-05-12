@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WASM WebGL Study</title>
+    <script src="./dist/hello.js"></script>
+    <script>
+    window.addEventListener("wasmLoaded", () => {
+        console.log("wasmLoaded")
+
+        const id = "webgl2_canvas"
+        const width = 400
+        const height = 300
+        
+        const canvas = document.createElement("canvas")
+        canvas.id = id
+        canvas.width = width
+        canvas.height = height
+        view_container.appendChild(canvas)
+        const context = canvas.getContext("webgl2")
+        const idBuffer = Module._malloc(id.length + 1)
+        stringToUTF8(id, idBuffer, id.length + 1)
+        Module.ccall("createContext", null, ["number", "number", "number"], [width, height, idBuffer])
+
+        btnRed.addEventListener("click", () => {
+            Module.ccall("setContextBackgroundColor", null, ["float","float","float","float"], [1,0,0,1])})
+
+        btnGreen.addEventListener("click", () => {
+            Module.ccall("setContextBackgroundColor", null, ["float","float","float","float"], [0,1,0,1])})
+
+        btnBlue.addEventListener("click", () => {
+            Module.ccall("setContextBackgroundColor", null, ["float","float","float","float"], [0,0,1,1])})
+
+        btnBlack.addEventListener("click", () => {
+            Module.ccall("setContextBackgroundColor", null, ["float","float","float","float"], [0,0,0,1])})
+    })
+    </script>
+</head>
+<body>
+    <button id="btnRed">Red</button>
+    <button id="btnGreen">Green</button>
+    <button id="btnBlue">Blue</button>
+    <button id="btnBlack">Black</button>
+    <br>
+    <br>
+    <div id="view_container"></div>
+</body>
+</html>
