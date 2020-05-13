@@ -8,6 +8,8 @@ public:
 
     void SetBackgroundColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
 
+	void DrawTriangle();
+
 private:
     int width;
     int height;

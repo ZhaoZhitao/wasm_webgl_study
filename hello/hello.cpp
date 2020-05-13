@@ -47,4 +47,16 @@ extern "C" {
         }
     }
 
+    EMSCRIPTEN_KEEPALIVE
+    void drawTriangle () {
+        if (context) {
+            printf("start drawTriangle\n");
+            context->DrawTriangle();
+            printf("end drawTriangle\n");
+        }
+        else {
+            printf("please create a context first.\n");
+        }
+    }
+
 }

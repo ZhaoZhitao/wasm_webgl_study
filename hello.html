@@ -32,6 +32,9 @@
 
         btnBlack.addEventListener("click", () => {
             Module.ccall("setContextBackgroundColor", null, ["float","float","float","float"], [0,0,0,1])})
+
+        btnDrawTriangle.addEventListener("click", () => {
+            Module.ccall("drawTriangle", null, [], [])})
     })
     </script>
 </head>
@@ -40,6 +43,7 @@
     <button id="btnGreen">Green</button>
     <button id="btnBlue">Blue</button>
     <button id="btnBlack">Black</button>
+    <button id="btnDrawTriangle">Triangle</button>
     <br>
     <br>
     <div id="view_container"></div>
