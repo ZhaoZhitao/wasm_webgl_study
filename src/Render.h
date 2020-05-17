@@ -1,6 +1,8 @@
 #ifndef Render_h
 #define Render_h
-namespace Render
+#include "Mesh.h"
+
+namespace OceanoGL
 {
     class Render
     {
@@ -9,7 +11,8 @@ namespace Render
     public:
         Render(/* args */);
         ~Render();
+        void Add(Mesh *mesh);
     };
-} // namespace Render
+} // namespace OceanoGL
 
 #endif
