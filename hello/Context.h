@@ -1,14 +1,15 @@
 
 
-class Context {
+class Context
+{
 public:
-    Context (int width, int height, char * id);
+    Context(int width, int height, char *id);
 
-    ~Context (void);
+    ~Context(void);
 
     void SetBackgroundColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
 
-	void DrawTriangle();
+    void DrawTriangle();
 
 private:
     int width;
@@ -19,5 +20,4 @@ private:
     GLuint fragmentShader;
 
     EMSCRIPTEN_WEBGL_CONTEXT_HANDLE context;
-
 };
