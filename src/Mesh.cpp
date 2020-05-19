@@ -1,8 +1,9 @@
 #include "Mesh.h"
 namespace OceanoGL
 {
-    Mesh::Mesh(const void *vertices, const void *normals, const void *indexes)
+    Mesh::Mesh(std::string name, const void *vertices, const void *normals, const void *indexes)
     {
+        Name = name;
         _Vertices = vertices;
         _Normals = normals;
         _Indexes = indexes;

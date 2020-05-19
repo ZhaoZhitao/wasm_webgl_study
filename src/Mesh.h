@@ -1,5 +1,6 @@
 #ifndef Mesh_h
 #define Mesh_h
+#include <string>
 namespace OceanoGL
 {
     class Mesh
@@ -8,8 +9,9 @@ namespace OceanoGL
         const void *_Vertices, *_Normals, *_Indexes;
 
     public:
-        Mesh(const void *vertices, const void *normals, const void *indexes);
+        Mesh(std::string name, const void *vertices, const void *normals, const void *indexes);
         ~Mesh();
+        std::string Name;
     };
 } // namespace OceanoGL
 
